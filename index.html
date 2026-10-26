@@ -1,0 +1,1245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sailakshmi Sri R. | Founder's Associate (Growth), Huzzle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,500;1,700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --black:#0c0c12;
+    --ink:#14141f;
+    --white:#f9f9fb;
+    --cream:#f2f1ff;
+    --pink:#6c5cff;
+    --pink-deep:#4b3ce0;
+    --pink-pale:#e3e0ff;
+    --mint:#2fbf71;
+    --butter:#ffc93c;
+    --warm-dark:#141033;
+    --gray:#8a8899;
+    --gray-dark:#47465a;
+    --grid-dark:rgba(255,255,255,0.07);
+    --grid-light:rgba(12,12,18,0.08);
+    --line-dark:rgba(255,255,255,0.16);
+    --line-light:rgba(12,12,18,0.14);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{background:var(--black);}
+  body{background:var(--black);color:var(--white);font-family:'Inter',sans-serif;font-weight:300;overflow-x:clip;}
+  ::selection{background:var(--pink);color:var(--white);}
+  a{color:inherit;text-decoration:none;}
+  button{font:inherit;background:none;border:none;color:inherit;cursor:pointer;}
+
+  .serif{font-family:'Playfair Display',serif;font-weight:700;}
+  .serif-i{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;}
+  .mono{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.14em;font-size:0.68rem;}
+
+  /* ===== grid texture ===== */
+  section{position:relative;width:100%;}
+  .grid-dark::before,.grid-light::before{
+    content:'';position:absolute;inset:0;pointer-events:none;z-index:0;
+    background-size:44px 44px;
+  }
+  .grid-dark::before{background-image:linear-gradient(var(--grid-dark) 1px,transparent 1px),linear-gradient(90deg,var(--grid-dark) 1px,transparent 1px);}
+  .grid-light::before{background-image:linear-gradient(var(--grid-light) 1px,transparent 1px),linear-gradient(90deg,var(--grid-light) 1px,transparent 1px);}
+  section > *{position:relative;z-index:1;}
+
+  /* ===== floating stickers ===== */
+  .sticker{position:absolute;font-size:clamp(22px,3vw,34px);filter:drop-shadow(0 6px 10px rgba(0,0,0,0.35));
+    animation:bob 6s ease-in-out infinite;pointer-events:none;z-index:2;}
+  @keyframes bob{0%,100%{transform:translateY(0) rotate(var(--r,0deg));}50%{transform:translateY(-14px) rotate(var(--r,0deg));}}
+
+  /* ===== cursor trail ===== */
+  .cur-ball{position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);
+    will-change:transform;opacity:0;transition:opacity .3s ease;font-size:16px;filter:drop-shadow(0 3px 6px rgba(0,0,0,0.4));}
+  .cursor-live .cur-ball{opacity:1;}
+  @media(hover:none) and (pointer:coarse){ body,a,button{cursor:auto;} }
+
+  /* ===== nav ===== */
+  nav{position:fixed;top:0;left:0;width:100%;z-index:600;display:flex;justify-content:space-between;align-items:center;
+    padding:26px 5vw;mix-blend-mode:difference;}
+  nav .logo{font-family:'Playfair Display',serif;font-style:italic;font-weight:700;font-size:1.2rem;}
+  nav .status{display:flex;align-items:center;gap:9px;}
+  nav .dot{width:7px;height:7px;border-radius:50%;background:var(--pink);box-shadow:0 0 8px var(--pink);}
+
+  .shell{padding:clamp(64px,9vw,110px) 5vw;}
+  .eyebrow{color:var(--pink);display:block;margin-bottom:16px;}
+  .sec-title{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2.1rem,5.2vw,3.6rem);line-height:1.05;margin-bottom:50px;max-width:820px;}
+
+  /* ===== HERO ===== */
+  .hero{min-height:100svh;display:flex;align-items:center;padding:120px 5vw 70px;background:linear-gradient(180deg,var(--black) 60%,var(--warm-dark) 100%);}
+  .hero-grid{display:grid;grid-template-columns:1.25fr 0.85fr;gap:56px;width:100%;align-items:start;}
+  .hero-name{font-size:clamp(2.5rem,6.6vw,5rem);line-height:1.04;}
+  .hero-name .r{overflow:hidden;display:block;}
+  .hero-name .r span{display:block;transform:translateY(112%);}
+  .hero-sub{font-family:'Playfair Display',serif;font-style:italic;font-weight:600;color:var(--pink);
+    font-size:clamp(1.1rem,2.1vw,1.45rem);margin-top:22px;opacity:0;max-width:560px;}
+  .hero-bio{max-width:530px;margin-top:24px;font-size:1rem;line-height:1.75;color:#d6d5e0;opacity:0;font-style:italic;}
+  .hero-tags{display:flex;flex-wrap:wrap;gap:10px;margin-top:30px;opacity:0;}
+  .tag{border:1px solid var(--line-dark);padding:9px 18px;border-radius:100px;font-size:0.78rem;transition:.3s;}
+  .tag:hover{border-color:var(--pink);color:var(--pink);}
+
+  .facts-card{background:var(--white);color:var(--black);border-radius:6px;padding:32px 30px;
+    transform:rotate(2deg);box-shadow:0 24px 50px rgba(0,0,0,0.5);opacity:0;translate:0 24px;}
+  .facts-card .fc-title{font-family:'Playfair Display',serif;font-weight:700;font-style:italic;font-size:1.15rem;margin-bottom:20px;color:var(--pink-deep);}
+  .fact-row{display:flex;gap:12px;padding:13px 0;border-top:1px solid var(--line-light);font-size:0.88rem;line-height:1.5;}
+  .fact-row:first-of-type{border-top:none;}
+  .fact-row .ic{flex-shrink:0;}
+  @media(max-width:900px){.hero-grid{grid-template-columns:1fr;}.facts-card{transform:none;}}
+
+  .scroll-cue{position:absolute;bottom:30px;left:5vw;display:flex;align-items:center;gap:10px;color:var(--gray);z-index:2;}
+  .scroll-cue .bar{width:1px;height:24px;background:var(--gray);position:relative;overflow:hidden;}
+  .scroll-cue .bar::after{content:'';position:absolute;top:-100%;left:0;width:100%;height:100%;background:var(--pink);animation:drip 1.8s ease-in-out infinite;}
+  @keyframes drip{0%{top:-100%}50%{top:0}100%{top:100%}}
+
+  /* ===== ROLE FIT ===== */
+  .fit-sec{background:linear-gradient(180deg,var(--warm-dark) 0%,var(--black) 22%,var(--black) 100%);}
+  .fit-head{display:grid;grid-template-columns:1.3fr 0.7fr;gap:48px;align-items:center;margin-bottom:56px;}
+  .fit-head .sec-title{margin-bottom:18px;}
+  .fit-intro{color:#d6d5e0;line-height:1.75;max-width:560px;font-size:1rem;}
+  .fit-list{border-bottom:1px solid var(--line-dark);}
+  .fit-row{display:grid;grid-template-columns:minmax(220px,0.8fr) 1.4fr;gap:36px;padding:26px 0;border-top:1px solid var(--line-dark);
+    transition:background .3s,padding-left .3s;border-radius:4px;}
+  .fit-row:hover{background:rgba(108,92,255,0.08);padding-left:12px;}
+  .fit-jd .mono{color:var(--gray);display:block;margin-bottom:8px;}
+  .fit-jd h4{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.05rem,1.9vw,1.3rem);line-height:1.3;}
+  .fit-ev p{color:#d6d5e0;line-height:1.75;font-size:0.96rem;}
+  .fit-ev strong{color:var(--pink);font-weight:600;}
+  @media(max-width:860px){.fit-head{grid-template-columns:1fr;}.fit-row{grid-template-columns:1fr;gap:12px;}}
+
+  /* scratch card */
+  .scratch-wrap{justify-self:center;width:100%;max-width:330px;}
+  .scratch{position:relative;width:100%;aspect-ratio:1.55;border-radius:14px;overflow:hidden;background:var(--white);color:var(--black);
+    transform:rotate(-2deg);box-shadow:0 24px 50px rgba(0,0,0,0.55);}
+  .scratch-under{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;padding:22px 24px;}
+  .scratch-under .mono{color:var(--pink-deep);}
+  .scratch-under h5{font-family:'Playfair Display',serif;font-weight:700;font-size:1.35rem;margin:6px 0 8px;}
+  .scratch-under p{font-size:0.8rem;line-height:1.55;color:#2a2a36;}
+  #scratchCanvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab;transition:opacity .6s ease;}
+  .scratch-cap{margin-top:16px;text-align:center;color:var(--gray);}
+
+  /* ===== green scope: scorer + test builder ===== */
+  .build-sec,.score-sec{
+    --pink:#1fa463;
+    --pink-deep:#12804a;
+    --pink-pale:#d4f2e0;
+    --cream:#f1f8ee;
+  }
+
+  /* ===== IDEA SCORER ===== */
+  .score-sec{background:linear-gradient(180deg,var(--black) 0%,#0b1a12 50%,var(--black) 100%);}
+  .score-sec .sec-title{margin-bottom:18px;}
+  .score-intro{color:#d6d5e0;line-height:1.75;max-width:640px;margin-bottom:40px;}
+  .sc-list{display:flex;flex-direction:column;gap:12px;}
+  .sc-row{border:1px solid var(--line-dark);border-radius:12px;padding:18px 22px;display:grid;grid-template-columns:1.15fr 1.5fr auto;gap:24px;align-items:center;
+    background:rgba(255,255,255,0.02);transition:border-color .3s,background .3s;animation:pop2 .35s ease both;}
+  .sc-row:hover{background:rgba(31,164,99,0.06);}
+  .sc-row.top{border-color:var(--pink);background:rgba(31,164,99,0.08);}
+  .sc-name .mono{color:var(--gray);display:block;margin-bottom:6px;}
+  .sc-name h5{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1rem,1.8vw,1.2rem);line-height:1.3;}
+  .sc-first{display:inline-block;margin-top:8px;background:var(--pink);color:#fff;border-radius:100px;padding:3px 10px;font-size:0.6rem;}
+  .sc-sliders{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .sc-sl{display:flex;flex-direction:column;gap:6px;}
+  .sc-sl .mono{color:#bdbccb;font-size:0.6rem;display:flex;justify-content:space-between;}
+  .sc-sl .mono b{color:var(--pink);font-weight:500;}
+  .sc-sl input{width:100%;accent-color:var(--pink);cursor:pointer;}
+  .sc-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px;}
+  .sc-score{font-family:'Playfair Display',serif;font-weight:700;font-size:1.9rem;line-height:1;}
+  .sc-plan{border:1px solid var(--line-dark);border-radius:100px;padding:7px 14px;font-size:0.76rem;white-space:nowrap;transition:.25s;}
+  .sc-plan:hover{border-color:var(--pink);color:var(--pink);}
+  .score-note{margin-top:20px;color:var(--gray);}
+  @media(max-width:860px){.sc-row{grid-template-columns:1fr;gap:16px;}.sc-right{flex-direction:row;align-items:center;justify-content:space-between;}}
+
+  /* ===== TEST BUILDER ===== */
+  .build-sec{background:linear-gradient(180deg,var(--black) 0%,var(--cream) 10%,var(--cream) 92%,var(--warm-dark) 100%);color:var(--black);}
+  .build-sec .eyebrow{color:var(--pink-deep);}
+  .build-sec .sec-title{margin-bottom:16px;}
+  .build-intro{color:#33323d;line-height:1.75;max-width:620px;margin-bottom:34px;}
+  .b-tabs{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:30px;}
+  .b-tab{border:2px solid var(--black);border-radius:100px;padding:11px 22px;font-weight:600;font-size:0.92rem;background:transparent;transition:.25s;}
+  .b-tab:hover{background:rgba(31,164,99,0.1);}
+  .b-tab.on{background:var(--black);color:var(--white);}
+  .b-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:36px;align-items:start;}
+  @media(max-width:880px){.b-grid{grid-template-columns:1fr;}}
+  .b-steps{border:2px solid var(--black);border-radius:10px;background:var(--white);padding:clamp(20px,3vw,32px);}
+  .b-step{padding:18px 0;border-top:1px solid var(--line-light);}
+  .b-step:first-child{border-top:none;padding-top:4px;}
+  .b-step h5{font-family:'JetBrains Mono',monospace;text-transform:uppercase;letter-spacing:0.12em;font-size:0.7rem;color:var(--pink-deep);margin-bottom:12px;font-weight:500;}
+  .b-opts{display:flex;flex-wrap:wrap;gap:8px;}
+  .b-opt{border:1.5px solid var(--line-light);border-radius:100px;padding:8px 14px;font-size:0.85rem;color:#2a2a36;background:#fff;transition:.2s;display:inline-flex;align-items:center;gap:6px;}
+  .b-opt:hover{border-color:var(--pink);}
+  .b-opt.on{background:var(--pink);border-color:var(--pink);color:#fff;font-weight:500;}
+  .b-opt.nope{animation:nope .35s;}
+  @keyframes nope{25%{transform:translateX(-4px)}75%{transform:translateX(4px)}}
+
+  .b-stage{position:sticky;top:90px;border:2px solid var(--black);border-radius:10px;background:var(--white);padding:26px 24px 24px;text-align:center;overflow:hidden;}
+  .b-stage::before{content:'';position:absolute;left:-40px;top:-40px;width:200px;height:200px;border-radius:50%;background:var(--pink-pale);opacity:.7;z-index:0;}
+  .b-stage > *{position:relative;z-index:1;}
+  .test-card{margin:14px auto 10px;min-height:190px;border:2px dashed var(--line-light);border-radius:12px;padding:22px 16px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:var(--cream);}
+  .tc-icon{font-size:44px;line-height:1;animation:pop .45s cubic-bezier(.3,1.6,.5,1) both;}
+  @keyframes pop{0%{transform:scale(0) rotate(-20deg);}100%{transform:scale(1) rotate(0);}}
+  .tc-tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;}
+  .tc-tile{background:#fff;border:1.5px solid var(--black);border-radius:10px;padding:6px 10px;font-size:0.78rem;display:inline-flex;gap:6px;align-items:center;animation:pop2 .35s ease both;}
+  .b-name{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.25rem,2.4vw,1.6rem);line-height:1.2;margin-top:6px;}
+  .b-sum{font-size:0.86rem;color:#47465a;line-height:1.6;margin-top:8px;min-height:3.2em;}
+  .swish-btn{margin-top:18px;display:inline-flex;align-items:center;gap:10px;background:var(--black);color:var(--white);padding:14px 28px;border-radius:100px;font-weight:600;font-size:0.92rem;transition:.25s;}
+  .swish-btn:hover{background:var(--pink);}
+  .ticket{margin-top:18px;border:1.5px dashed var(--black);border-radius:8px;padding:14px 16px;text-align:left;display:none;}
+  .ticket.show{display:block;animation:pop2 .4s ease both;}
+  @keyframes pop2{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .ticket .t-top{display:flex;justify-content:space-between;color:var(--gray-dark);}
+  .t-track{position:relative;height:30px;margin:12px 0 6px;border-bottom:2px dotted var(--black);}
+  .t-scoot{position:absolute;bottom:-2px;left:0;font-size:20px;transition:left 2.4s cubic-bezier(.45,.05,.3,1);}
+  .t-home{position:absolute;right:-4px;bottom:-2px;font-size:20px;}
+  .t-status{font-size:0.88rem;font-weight:500;}
+
+  /* ===== ROADMAP ===== */
+  .road-pin{background:linear-gradient(180deg,var(--warm-dark) 0%,#0f0d24 55%,var(--black) 100%);}
+  .road-inner{height:100svh;display:flex;flex-direction:column;justify-content:center;position:relative;padding:110px 0 50px;}
+  .road-head{padding:0 5vw;}
+  .road-viewport{position:relative;width:100%;flex:1;overflow-x:hidden;overflow-y:visible;margin-top:34px;}
+  .road-track{position:relative;height:100%;will-change:transform;}
+  .road-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;}
+  .road-base{fill:none;stroke:#22213a;stroke-width:26;stroke-linecap:round;opacity:0.9;}
+  .road-base-inner{fill:none;stroke:#33324f;stroke-width:20;stroke-linecap:round;opacity:0.9;}
+  .road-line{fill:none;stroke:var(--pink);stroke-width:2.5;stroke-linecap:round;stroke-dasharray:1 18;opacity:0.85;}
+  .road-glow{fill:none;stroke:var(--pink);stroke-width:14;stroke-linecap:round;opacity:0.08;filter:blur(6px);}
+  .road-traveler{position:absolute;font-size:24px;transform:translate(-50%,-60%);z-index:40;
+    filter:drop-shadow(0 4px 8px rgba(0,0,0,0.5));}
+
+  .checkpoint{position:absolute;width:0;height:0;transition:opacity .1s linear;}
+  .cp-pin{position:absolute;left:0;top:0;transform:translate(-50%,-50%);
+    width:70px;height:70px;border-radius:48% 52% 53% 47%/52% 48% 52% 48%;background:var(--white);color:var(--black);
+    display:flex;align-items:center;justify-content:center;font-size:1.8rem;
+    box-shadow:0 18px 32px rgba(0,0,0,0.5);border:2px dashed transparent;overflow:visible;}
+  .cp-pin::after{content:'';position:absolute;inset:-10px;border-radius:46% 54% 50% 50%/54% 46% 54% 46%;
+    border:1.5px dashed var(--pink);opacity:0;transition:opacity .3s,transform .3s;transform:scale(0.8) rotate(-4deg);}
+  .checkpoint.focused .cp-pin::after{opacity:1;transform:scale(1) rotate(-4deg);}
+  .checkpoint:hover .cp-pin{background:var(--pink);color:var(--white);}
+  .cp-spark{position:absolute;top:-14px;right:-16px;font-size:1rem;opacity:0.85;}
+  .cp-card{position:absolute;left:0;top:46px;transform:translateX(-50%);width:min(72vw,330px);text-align:center;}
+  .cp-card .cp-yr{color:var(--pink);display:block;margin-bottom:6px;}
+  .cp-card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.05rem,1.9vw,1.3rem);}
+  .cp-card p{font-size:0.84rem;line-height:1.6;color:#d6d5e0;margin-top:0;max-height:0;overflow:hidden;
+    transition:max-height .4s ease,margin-top .4s ease;}
+  .checkpoint.focused .cp-card p,.checkpoint:hover .cp-card p{max-height:220px;margin-top:10px;}
+
+  @media(max-width:768px){
+    .road-inner{height:auto;padding:70px 0 50px;}
+    .road-viewport{overflow-x:auto;overflow-y:visible;height:66vh;-webkit-overflow-scrolling:touch;}
+    .road-track{width:1500px !important;transform:none !important;}
+    .cp-card{width:58vw;}
+  }
+
+  /* ===== WORK ===== */
+  .work-sec{background:linear-gradient(180deg,var(--black) 0%,var(--white) 12%,var(--white) 90%,var(--black) 100%);color:var(--black);}
+  .work-sec .eyebrow{color:var(--pink-deep);}
+  .work-sec .sec-title{color:var(--black);}
+
+  .intern-card{border:2px solid var(--black);border-radius:8px;padding:clamp(28px,4vw,44px);margin-bottom:40px;background:var(--white);}
+  .intern-head{display:flex;flex-wrap:wrap;justify-content:space-between;gap:24px;padding-bottom:26px;border-bottom:1px solid var(--line-light);margin-bottom:24px;}
+  .intern-name{font-size:clamp(1.6rem,3.4vw,2.4rem);margin-top:6px;}
+  .intern-meta-block{display:flex;gap:34px;}
+  .intern-meta-block p{font-size:0.95rem;margin-top:6px;color:var(--black);}
+  .now-pill{display:inline-flex;align-items:center;gap:7px;margin-top:10px;border:1px solid var(--pink-deep);color:var(--pink-deep);
+    border-radius:100px;padding:4px 12px;font-size:0.62rem;}
+  .now-pill .dot{width:6px;height:6px;border-radius:50%;background:var(--pink);box-shadow:0 0 6px var(--pink);}
+  .hl-row{display:flex;gap:18px;padding:20px 0;border-top:1px solid var(--line-light);transition:background .3s,padding-left .3s;border-radius:4px;}
+  .hl-row:hover{background:rgba(108,92,255,0.06);padding-left:12px;}
+  .hl-num{color:var(--pink-deep);flex-shrink:0;padding-top:2px;}
+  .hl-row p{font-size:0.98rem;line-height:1.75;color:#2a2a36;}
+  .hl-badge{display:inline-flex;align-items:center;justify-content:center;background:var(--pink);color:var(--white);
+    border-radius:100px;padding:3px 11px;font-size:0.78rem;font-weight:700;margin:0 3px;}
+  @media(max-width:700px){.intern-head{flex-direction:column;}.intern-meta-block{gap:20px;}}
+
+  .research-card{border:2px solid var(--black);border-radius:6px;padding:clamp(26px,4vw,44px);margin-top:54px;background:var(--white);}
+  .research-card h4{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.25rem,2.5vw,1.75rem);margin-bottom:14px;}
+  .research-card > p{color:#2a2a36;line-height:1.75;max-width:640px;margin-bottom:22px;}
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;}
+  .chip{border:1px solid var(--line-light);border-radius:100px;padding:7px 14px;font-size:0.72rem;color:var(--gray-dark);}
+  .insight-toggle{display:inline-flex;align-items:center;gap:8px;background:var(--pink);color:var(--white);
+    border-radius:100px;padding:10px 20px;font-size:0.8rem;margin-bottom:6px;transition:.3s;}
+  .insight-toggle:hover{background:var(--pink-deep);}
+  .insights{list-style:none;max-height:0;overflow:hidden;transition:max-height .5s ease,margin-top .5s ease;margin-top:0;}
+  .insights.open{max-height:300px;margin-top:20px;}
+  .insights li{padding:11px 0;border-top:1px solid var(--line-light);font-size:0.95rem;line-height:1.5;position:relative;padding-left:20px;color:#22212b;}
+  .insights li::before{content:'•';position:absolute;left:0;color:var(--pink-deep);}
+
+  /* ===== CERTIFICATIONS ===== */
+  .cert-pin{height:100svh;position:relative;overflow:hidden;background:var(--black);}
+  .cert-head{position:absolute;top:13vh;left:5vw;z-index:5;}
+  .cert-hint{position:absolute;top:14.3vh;right:5vw;color:var(--gray);z-index:5;}
+  .cert-stack{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;}
+  .cert-card{
+    position:absolute;width:min(64vw,460px);height:min(44vh,320px);border-radius:14px;
+    padding:32px 34px;display:flex;flex-direction:column;justify-content:space-between;
+    background:var(--white);color:var(--black);box-shadow:0 24px 60px rgba(0,0,0,0.55);
+    overflow:hidden;
+  }
+  .cert-card .top-row{display:flex;justify-content:space-between;color:var(--gray-dark);}
+  .cert-icon-row{display:flex;gap:10px;margin:14px 0 2px;font-size:1.05rem;opacity:0.7;}
+  .cert-card .provider{color:var(--pink-deep);display:block;margin-bottom:8px;}
+  .cert-card h3{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.35rem,3vw,2rem);line-height:1.12;}
+  .cert-card .bullets{list-style:none;font-size:0.85rem;line-height:1.9;color:#2a2a36;}
+  .cert-card .bullets li::before{content:'· ';color:var(--pink-deep);font-weight:700;}
+  .cert-rail{position:absolute;right:5vw;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;
+    gap:14px;z-index:5;}
+  .cert-rail .cd{width:7px;height:7px;border-radius:50%;background:var(--line-dark);transition:background .3s,transform .3s;}
+  .cert-rail .cd.active{background:var(--pink);transform:scale(1.4);}
+  @media(max-width:640px){
+    .cert-head{top:8vh;}.cert-hint{display:none;}.cert-rail{display:none;}
+    .cert-card{width:86vw;height:56vh;padding:26px;}
+  }
+
+  /* ===== SKILL KIT ===== */
+  .skill-sec{background:linear-gradient(165deg,var(--black) 0%,#1c1650 22%,#3b2f8f 58%,#5a4bc0 100%);position:relative;}
+  .skill-sec::after{content:'';position:absolute;inset:0;background:radial-gradient(120% 90% at 15% 10%,rgba(0,0,0,0.25),transparent 60%);pointer-events:none;z-index:0;}
+  .skill-sec .eyebrow{color:var(--pink-pale);}
+  .skill-sec .sec-title{color:var(--white);}
+  .skill-acc{border-top:1px solid rgba(249,249,251,0.24);}
+  .sk-row{border-bottom:1px solid rgba(249,249,251,0.24);padding:26px 0;}
+  .sk-row .sk-top{display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+  .sk-row h4{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.15rem,2.3vw,1.55rem);color:var(--white);}
+  .sk-row .chev{font-size:1.3rem;color:var(--pink-pale);transition:transform .35s;}
+  .sk-row.open .chev{transform:rotate(45deg);}
+  .sk-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
+  .sk-tag{border:1px solid rgba(249,249,251,0.4);border-radius:100px;padding:6px 13px;font-size:0.72rem;color:var(--white);}
+  .sk-body{max-height:0;overflow:hidden;transition:max-height .5s ease,margin-top .5s ease;margin-top:0;}
+  .sk-row.open .sk-body{max-height:220px;margin-top:16px;}
+  .sk-body p{color:#e4e0ff;line-height:1.7;font-size:0.95rem;max-width:620px;}
+
+  /* ===== BEYOND ===== */
+  .beyond-sec{background:linear-gradient(180deg,var(--pink) 0%,var(--white) 20%);color:var(--black);}
+  .beyond-sec .eyebrow{color:var(--pink-deep);}
+  .beyond-sec .sec-title{color:var(--black);}
+  .beyond-grid{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:20px;}
+  .beyond-card{border:2px solid var(--black);border-radius:8px;padding:42px 36px;background:var(--white);transition:transform .35s;}
+  .beyond-card:hover{transform:translateY(-8px);}
+  .beyond-card .ic{width:44px;height:44px;border-radius:50%;background:var(--pink);
+    display:flex;align-items:center;justify-content:center;font-size:1.15rem;margin-bottom:22px;}
+  .beyond-card h4{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(1.15rem,2.3vw,1.6rem);}
+  .beyond-card .yr{color:var(--gray-dark);margin:8px 0 16px;display:block;font-size:0.85rem;}
+  .beyond-card p{color:#2a2a36;line-height:1.75;font-size:0.95rem;}
+  @media(max-width:700px){.beyond-grid{grid-template-columns:1fr;}}
+
+  /* ===== FINAL ===== */
+  .final{min-height:100svh;display:flex;flex-direction:column;justify-content:center;background:linear-gradient(180deg,var(--white) 0%,var(--black) 24%);}
+  .final .shell{color:var(--white);}
+  .final .kicker{color:var(--pink);}
+  .final h2{font-family:'Playfair Display',serif;font-weight:700;font-size:clamp(2.3rem,6.2vw,4.4rem);line-height:1.08;max-width:800px;}
+  .final .lead{margin-top:22px;max-width:560px;font-size:1rem;line-height:1.75;color:#d6d5e0;}
+  .contact-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .c-cell{border-top:1px solid var(--line-dark);padding-top:18px;}
+  .c-cell .lbl{color:var(--pink);}
+  .c-cell .val{font-family:'Inter',sans-serif;font-weight:500;font-size:clamp(0.92rem,1.6vw,1.1rem);margin-top:10px;letter-spacing:0.01em;}
+  .c-cell .val a{border-bottom:1px solid transparent;transition:border-color .3s,color .3s;}
+  .c-cell .val a:hover{border-color:var(--pink);color:var(--pink);}
+  @media(max-width:700px){.contact-grid{grid-template-columns:1fr;}}
+  .apply-btn{margin-top:56px;display:inline-flex;align-items:center;gap:14px;background:var(--pink);color:var(--white);
+    padding:20px 38px;border-radius:100px;font-weight:600;font-size:0.98rem;width:fit-content;}
+  .apply-btn .arrow{transition:transform .3s;}
+  .apply-btn:hover .arrow{transform:translateX(6px);}
+  .final-note{margin-top:32px;font-family:'Playfair Display',serif;font-style:italic;color:#c8c7d4;max-width:420px;}
+  .portfolio-cta{margin-top:44px;padding-top:44px;border-top:1px solid var(--line-dark);}
+  .portfolio-cta h3{font-size:clamp(1.6rem,3.6vw,2.4rem);margin-top:14px;max-width:600px;}
+  .portfolio-cta p{font-family:'Inter',sans-serif;font-weight:300;color:#c8c7d4;margin-top:14px;max-width:480px;font-size:0.98rem;line-height:1.7;}
+  .portfolio-btn{margin-top:30px;display:inline-flex;align-items:center;gap:12px;border:1.5px solid var(--pink);color:var(--pink);
+    padding:16px 32px;border-radius:100px;font-weight:600;font-size:0.94rem;width:fit-content;transition:background .3s,color .3s;}
+  .portfolio-btn:hover{background:var(--pink);color:var(--white);}
+  .portfolio-btn .arrow{transition:transform .3s;}
+  .portfolio-btn:hover .arrow{transform:translateX(6px);}
+  footer{padding:28px 5vw;background:var(--black);color:var(--gray);display:flex;justify-content:space-between;font-size:0.75rem;}
+
+  .fade-up{opacity:0;transform:translateY(44px);}
+
+  @media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;}}
+</style>
+</head>
+<body>
+
+<div class="cur-ball" id="ball1">🌍</div>
+<div class="cur-ball" id="ball2">📈</div>
+<div class="cur-ball" id="ball3">🔗</div>
+<div class="cur-ball" id="ball4">✉️</div>
+<div class="cur-ball" id="ball5">🤝</div>
+<div class="cur-ball" id="ball6">💡</div>
+<div class="cur-ball" id="ball7">🚀</div>
+
+<nav>
+  <div class="logo">Sailakshmi</div>
+  <div class="status mono"><span class="dot"></span>Founder's Associate (Growth), Huzzle</div>
+</nav>
+
+<!-- HERO -->
+<section class="hero grid-dark">
+  <span class="sticker" style="top:14%;left:82%;--r:-8deg;">🌍</span>
+  <span class="sticker" style="top:8%;left:6%;--r:6deg;animation-delay:1s;">📈</span>
+  <span class="sticker" style="top:80%;left:88%;--r:-14deg;animation-delay:1.5s;">🚀</span>
+  <div class="hero-grid">
+    <div>
+      <span class="mono eyebrow">Application / Founder's Associate (Growth), Huzzle</span>
+      <h1 class="hero-name serif">
+        <span class="r"><span>Sailakshmi</span></span>
+        <span class="r"><span>Sri R.</span></span>
+      </h1>
+      <p class="hero-sub">Huzzle makes hiring from anywhere simple. I'd love to help more companies find that out.</p>
+      <p class="hero-bio serif-i">"I like taking a fuzzy question, picking one thing worth trying, and seeing what actually happens. Most of my work so far has been that loop, just at a smaller scale."</p>
+      <div class="hero-tags">
+        <span class="tag">Organic Growth</span>
+        <span class="tag">SEO &amp; GEO</span>
+        <span class="tag">LinkedIn</span>
+        <span class="tag">Partnerships</span>
+        <span class="tag">Experiments</span>
+      </div>
+    </div>
+
+    <div class="facts-card" id="factsCard">
+      <div class="fc-title">Quick Facts</div>
+      <div class="fact-row"><span class="ic">🎓</span><span>MBA Marketing, Sri Sathya Sai Institute of Higher Learning (2026)</span></div>
+      <div class="fact-row"><span class="ic">💼</span><span>Now: Marketing &amp; Sales Intern at Greentern, on website, newsletter, LinkedIn and outbound BD</span></div>
+      <div class="fact-row"><span class="ic">🌏</span><span>Pitching clients across India and Southeast Asia, and cold-called dealerships in Australia</span></div>
+      <div class="fact-row"><span class="ic">📣</span><span>Content and campaigns across 10+ brands at TING Works</span></div>
+      <div class="fact-row"><span class="ic">📊</span><span>Semrush AI-Powered Marketer and Google Data Analytics certified</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue mono"><div class="bar"></div>Scroll</div>
+</section>
+
+<!-- ROLE FIT -->
+<section class="shell fit-sec grid-dark">
+  <span class="sticker" style="top:6%;left:92%;--r:10deg;">🧪</span>
+  <div class="fit-head">
+    <div>
+      <span class="mono eyebrow fade-up">Role Fit</span>
+      <h2 class="sec-title fade-up">Small team. Real ownership.</h2>
+      <p class="fit-intro fade-up">Here's what the Founder's Associate (Growth) role asks for, and where I've already done it or the closest thing to it. Where I haven't yet, I've said so.</p>
+    </div>
+    <div class="scratch-wrap fade-up">
+      <div class="scratch">
+        <div class="scratch-under">
+          <span class="mono">Experiment result ✓</span>
+          <h5>Worth scaling.</h5>
+          <p>The best moment in growth: a small test that works, and a good reason to turn it into a channel. That's the loop I want to run every week.</p>
+        </div>
+        <canvas id="scratchCanvas" aria-label="Scratch card, drag to reveal"></canvas>
+      </div>
+      <div class="scratch-cap mono">Go on, scratch it</div>
+    </div>
+  </div>
+
+  <div class="fit-list">
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">01 / SEO &amp; GEO</span><h4>Content that gets found, by people and by AI</h4></div>
+      <div class="fit-ev"><p>Audited Greentern's website for SEO gaps, and I work with our vendors to keep the website delivery on schedule. I'm Semrush AI-Powered Marketer certified, so I know the tools and how search is shifting toward AI answers. I haven't owned an SEO channel end to end yet, and that's exactly the part I want to learn by doing.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">02 / LinkedIn</span><h4>Help the founders and the brand show up on LinkedIn</h4></div>
+      <div class="fit-ev"><p>I work on Greentern's LinkedIn, and my research was about exactly this: how the founders of Zepto, Zomato, Mamaearth and Zerodha show up on LinkedIn, Instagram and YouTube. What I found is that sounding consistent and real builds more trust than posting more.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">03 / Partnerships</span><h4>Partnerships, referrals and affiliates</h4></div>
+      <div class="fit-ev"><p>I run outbound BD for a loyalty and rewards agency across India and Southeast Asia, pitching decision makers like national trade marketing managers and commercial heads. I booked <strong>5 meetings in a month</strong>, qualify inbound requests on programme, decision maker, scale and budget, and built B2B prospect lists from Inc42 and Tracxn for email campaigns.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">04 / Experiments</span><h4>Launch, measure, keep what works</h4></div>
+      <div class="fit-ev"><p>Supported a Milk Day digital contest that drove a <strong>36% spike in engagement</strong> and a Mother's Day campaign that grew followers by <strong>21%</strong>. I prepared monthly performance reports at TING Works that guided what we posted next, and I'm comfortable in Power BI, Tableau and Meta Business Suite when the numbers need a closer look.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">05 / Range</span><h4>Landing pages, decks and whatever's pressing</h4></div>
+      <div class="fit-ev"><p>A Fine Arts background, Google UX Design and Graphic Design Essentials, and hands-on Canva and Figma work from pitch decks to newsletter layouts. I put this page together as my application. I haven't run paid campaigns yet, but I'd pick it up quickly.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">06 / Ownership</span><h4>Turn an unclear problem into a practical next step</h4></div>
+      <div class="fit-ev"><p>My role at Greentern spans marketing and BD, so I'm used to figuring out what matters most this week and getting on with it. Outbound only works with follow-ups, and I'm usually the one with the tracker open before the call ends.</p></div>
+    </div>
+    <div class="fit-row fade-up">
+      <div class="fit-jd"><span class="mono">07 / Working style</span><h4>Low ego, open to feedback, easy to work with</h4></div>
+      <div class="fit-ev"><p>Worked across creative, content and social teams at TING Works, and a month of member care on Capillary taught me how much tone matters when someone is frustrated. Four years as a percussionist in a band taught me the rest: listen first, adapt, and stay in rhythm with everyone else.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- IDEA SCORER -->
+<section class="shell score-sec grid-dark" id="score">
+  <span class="sticker" style="top:8%;left:90%;--r:-8deg;">⚖️</span>
+  <span class="mono eyebrow fade-up">What I'd Test First</span>
+  <h2 class="sec-title fade-up">Not every idea deserves a launch.</h2>
+  <p class="score-intro fade-up">Before building anything, I'd rank what's worth testing. Here are a few starting ideas with my first guesses on Impact, Confidence and Ease. Move the sliders and the list re-sorts. These are illustrative; I'd redo them after learning what's already working at Huzzle.</p>
+  <div class="sc-list fade-up" id="scList"></div>
+  <p class="score-note mono fade-up">Score = average of Impact, Confidence and Ease</p>
+</section>
+
+<!-- TEST BUILDER -->
+<section class="shell build-sec grid-light" id="build">
+  <span class="sticker" style="top:7%;left:90%;--r:12deg;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">🧪</span>
+  <span class="sticker" style="top:86%;left:5%;--r:-10deg;animation-delay:.6s;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">📊</span>
+  <span class="mono eyebrow fade-up">Plan a Test</span>
+  <h2 class="sec-title fade-up">Start small. Learn fast.</h2>
+  <p class="build-intro fade-up">Every idea should become a small test with a clear audience, a format and one result to watch. Pick a channel and shape one. The options here are illustrative, not Huzzle's actual plan.</p>
+
+  <div class="b-tabs fade-up" id="bTabs">
+    <button class="b-tab on" data-tab="seo">🔎 SEO / GEO</button>
+    <button class="b-tab" data-tab="li">💼 LinkedIn</button>
+    <button class="b-tab" data-tab="partner">🤝 Partnerships</button>
+  </div>
+
+  <div class="b-grid fade-up">
+    <div class="b-steps" id="bSteps"></div>
+    <div class="b-stage">
+      <span class="mono" style="color:var(--pink-deep);">Your test</span>
+      <div class="test-card" id="testCard"></div>
+      <div class="b-name" id="bName"></div>
+      <div class="b-sum" id="bSum"></div>
+      <button class="swish-btn" id="launchBtn">Launch test <span>🚀</span></button>
+      <div class="ticket" id="ticket">
+        <div class="t-top mono"><span id="tNo">Test #GR-0000</span><span>~2 weeks</span></div>
+        <div class="t-track"><span class="t-scoot" id="tScoot">🧪</span><span class="t-home">📊</span></div>
+        <div class="t-status" id="tStatus">Running...</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="road-pin grid-dark" id="roadPin">
+  <span class="sticker" style="top:10%;left:10%;--r:-10deg;">📍</span>
+  <span class="sticker" style="top:12%;left:90%;--r:12deg;animation-delay:.8s;">✨</span>
+  <div class="road-inner">
+    <div class="road-head">
+      <span class="mono eyebrow">My Journey</span>
+      <h2 class="sec-title" style="margin-bottom:0;font-size:clamp(1.85rem,4.5vw,3.1rem);">The route so far.</h2>
+    </div>
+
+    <div class="road-viewport" id="roadViewport">
+      <div class="road-track" id="roadTrack">
+        <svg class="road-svg" id="roadSvg" viewBox="0 0 1200 320" preserveAspectRatio="none">
+          <path class="road-glow" d="M60,200 C185,200 210,90 335,90 C460,90 485,190 610,190 C735,190 760,80 885,80 C1010,80 1035,160 1160,160"/>
+          <path class="road-base" d="M60,200 C185,200 210,90 335,90 C460,90 485,190 610,190 C735,190 760,80 885,80 C1010,80 1035,160 1160,160"/>
+          <path class="road-base-inner" d="M60,200 C185,200 210,90 335,90 C460,90 485,190 610,190 C735,190 760,80 885,80 C1010,80 1035,160 1160,160"/>
+          <path class="road-line" d="M60,200 C185,200 210,90 335,90 C460,90 485,190 610,190 C735,190 760,80 885,80 C1010,80 1035,160 1160,160"/>
+          <path id="roadRef" d="M60,200 C185,200 210,90 335,90 C460,90 485,190 610,190 C735,190 760,80 885,80 C1010,80 1035,160 1160,160" fill="none" stroke="none"/>
+        </svg>
+        <div class="road-traveler" id="roadTraveler">🚀</div>
+
+        <div class="checkpoint" data-x="60" data-y="200" data-progress="0.02">
+          <div class="cp-pin">🎓<span class="cp-spark">💭</span></div>
+          <div class="cp-card">
+            <span class="cp-yr mono">2021 – 2024</span>
+            <h3>B.Com (Hons)</h3>
+            <p>Sri Sathya Sai Institute of Higher Learning. Built a strong understanding of business structure, decision-making, and how brands operate beyond theory.</p>
+          </div>
+        </div>
+        <div class="checkpoint" data-x="335" data-y="90" data-progress="0.26">
+          <div class="cp-pin">📚<span class="cp-spark">✦</span></div>
+          <div class="cp-card">
+            <span class="cp-yr mono">2024 – 2026</span>
+            <h3>MBA Marketing</h3>
+            <p>Deepening into digital strategy, consumer behaviour and analytics, alongside independent research on founders and brand perception.</p>
+          </div>
+        </div>
+        <div class="checkpoint" data-x="610" data-y="190" data-progress="0.50">
+          <div class="cp-pin">📣<span class="cp-spark">📎</span></div>
+          <div class="cp-card">
+            <span class="cp-yr mono">Apr – Jun 2025</span>
+            <h3>Social Media Marketing Intern, TING Works</h3>
+            <p>Campaign planning, execution and monthly reporting across 10+ brands. Details below.</p>
+          </div>
+        </div>
+        <div class="checkpoint" data-x="885" data-y="80" data-progress="0.74">
+          <div class="cp-pin">💼<span class="cp-spark">📞</span></div>
+          <div class="cp-card">
+            <span class="cp-yr mono">Aug 2026 – Present</span>
+            <h3>Marketing &amp; Sales Intern, Greentern</h3>
+            <p>Outbound BD and client conversations for a loyalty and rewards agency and an AI voice product, plus website, LinkedIn and newsletter work.</p>
+          </div>
+        </div>
+        <div class="checkpoint" data-x="1160" data-y="160" data-progress="1">
+          <div class="cp-pin">🌍</div>
+          <div class="cp-card">
+            <span class="cp-yr mono">Next Stop</span>
+            <h3>Growing Huzzle, one channel at a time.</h3>
+            <p>Finding the channels that bring the right companies to Huzzle, and turning the ones that work into something that runs every week.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="shell work-sec grid-light">
+  <span class="sticker" style="top:8%;left:92%;--r:8deg;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">📈</span>
+  <span class="sticker" style="top:70%;left:4%;--r:-12deg;animation-delay:.6s;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">📎</span>
+  <span class="mono eyebrow fade-up">Work</span>
+  <h2 class="sec-title fade-up">Experience</h2>
+
+  <!-- GREENTERN -->
+  <div class="intern-card fade-up">
+    <div class="intern-head">
+      <div class="intern-name-block">
+        <span class="mono" style="color:var(--pink-deep);">Company</span>
+        <h3 class="serif intern-name">Greentern</h3>
+        <span class="now-pill mono"><span class="dot"></span>Current</span>
+      </div>
+      <div class="intern-meta-block">
+        <div><span class="mono" style="color:var(--pink-deep);">Role</span><p>Marketing &amp; Sales Intern</p></div>
+        <div><span class="mono" style="color:var(--pink-deep);">Duration</span><p>Aug 2026 – Present</p></div>
+      </div>
+    </div>
+    <div class="intern-highlights">
+      <div class="hl-row"><span class="hl-num mono">01</span><p>Run outbound business development for a loyalty and rewards agency across India and Southeast Asia, pitching decision makers such as national trade marketing managers and commercial heads.</p></div>
+      <div class="hl-row"><span class="hl-num mono">02</span><p>Booked <span class="hl-badge" data-count="5" data-suffix="">0</span> client meetings for the India market in September 2026, and qualify inbound requests on existing programme, decision maker, scale and budget.</p></div>
+      <div class="hl-row"><span class="hl-num mono">03</span><p>Audited the company website for SEO gaps and coordinate with vendors to keep website delivery on schedule.</p></div>
+      <div class="hl-row"><span class="hl-num mono">04</span><p>Work on the company website, LinkedIn and client newsletter, including designing the newsletter's structure and layout.</p></div>
+      <div class="hl-row"><span class="hl-num mono">05</span><p>Built B2B prospect lists from Inc42 and Tracxn for email campaigns, and cold-called Australian car dealerships for an AI voice product.</p></div>
+      <div class="hl-row"><span class="hl-num mono">06</span><p>Handled a month of customer support and member care on Capillary, responding to customer queries.</p></div>
+    </div>
+  </div>
+
+  <!-- TING -->
+  <div class="intern-card fade-up">
+    <div class="intern-head">
+      <div class="intern-name-block">
+        <span class="mono" style="color:var(--pink-deep);">Company</span>
+        <h3 class="serif intern-name">TING Works LLP</h3>
+      </div>
+      <div class="intern-meta-block">
+        <div><span class="mono" style="color:var(--pink-deep);">Role</span><p>Social Media Marketing Intern</p></div>
+        <div><span class="mono" style="color:var(--pink-deep);">Duration</span><p>April – June 2025</p></div>
+      </div>
+    </div>
+    <div class="intern-highlights">
+      <div class="hl-row"><span class="hl-num mono">01</span><p>Supported digital marketing initiatives across 10+ brands by assisting with campaign planning, content strategy, and social media execution.</p></div>
+      <div class="hl-row"><span class="hl-num mono">02</span><p>Planned content calendars, conducted competitor research, and prepared monthly performance reports to support data-driven marketing decisions.</p></div>
+      <div class="hl-row"><span class="hl-num mono">03</span><p>Supported a Milk Day digital contest that generated a <span class="hl-badge" data-count="36">0%</span> spike in engagement through interactive content and community participation.</p></div>
+      <div class="hl-row"><span class="hl-num mono">04</span><p>Contributed to a Mother's Day campaign that resulted in a <span class="hl-badge" data-count="21">0%</span> increase in follower growth through strategic content planning and campaign execution.</p></div>
+      <div class="hl-row"><span class="hl-num mono">05</span><p>Collaborated with cross-functional creative, content, and social media teams while managing workflows using Meta Business Suite, Zoho Projects, Zoho Cliq, and PeopleHum.</p></div>
+      <div class="hl-row"><span class="hl-num mono">06</span><p>Assisted in content creation, social listening, campaign coordination, and community management while handling multiple deliverables in a fast-paced agency environment.</p></div>
+    </div>
+  </div>
+
+  <div class="research-card fade-up">
+    <span class="mono" style="color:var(--pink-deep);">Research</span>
+    <h4>Study on Founder Communication &amp; Brand Perception</h4>
+    <p>Explores how a founder's communication style, behavior, and public presence shape trust, credibility, and emotional connection with consumers. I studied the founders of Zepto, Zomato, Mamaearth and Zerodha across LinkedIn, Instagram and YouTube. It's the thinking I'd bring to founder-led content at Huzzle.</p>
+    <div class="chip-row">
+      <span class="chip">Brand Perception</span>
+      <span class="chip">Founder Communication</span>
+      <span class="chip">Consumer Insight</span>
+      <span class="chip">Marketing Psychology</span>
+    </div>
+    <button class="insight-toggle" id="insightToggle">💡 <span id="insightLabel">Show Insights</span></button>
+    <ul class="insights" id="insightsList">
+      <li>People judge the brand by how they feel about the founder</li>
+      <li>It's not about posting more, it's about sounding consistent and real</li>
+      <li>When founders share their story, people connect and that builds loyalty</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section class="cert-pin grid-dark" id="certPin">
+  <span class="sticker" style="top:80%;left:8%;--r:-8deg;">🏅</span>
+  <div class="cert-head">
+    <span class="mono eyebrow" style="color:var(--pink)">Credentials</span>
+    <h2 class="sec-title" style="margin-bottom:0;font-size:clamp(2rem,5vw,3.2rem);">Certifications</h2>
+  </div>
+  <div class="cert-hint mono">Scroll to reveal</div>
+  <div class="cert-rail" id="certRail">
+    <div class="cd active"></div><div class="cd"></div><div class="cd"></div><div class="cd"></div><div class="cd"></div>
+  </div>
+  <div class="cert-stack" id="certStack">
+    <div class="cert-card" data-card>
+      <div class="top-row mono"><span>01 / 05</span><span>Search &amp; AI</span></div>
+      <div class="cert-icon-row">🔎✨📈</div>
+      <div><span class="mono provider">Semrush</span><h3>Semrush AI Powered Marketer</h3></div>
+    </div>
+    <div class="cert-card" data-card>
+      <div class="top-row mono"><span>02 / 05</span><span>Analytics</span></div>
+      <div class="cert-icon-row">📊📈✎</div>
+      <div><span class="mono provider">Google</span><h3>Google Data Analytics</h3></div>
+      <ul class="bullets"><li>Data cleaning</li><li>Spreadsheets &amp; SQL</li><li>Tableau dashboards</li><li>Turning data into decisions</li></ul>
+    </div>
+    <div class="cert-card" data-card>
+      <div class="top-row mono"><span>03 / 05</span><span>UX</span></div>
+      <div class="cert-icon-row">🔍✎🖊️</div>
+      <div><span class="mono provider">Google</span><h3>Google UX Design</h3></div>
+    </div>
+    <div class="cert-card" data-card>
+      <div class="top-row mono"><span>04 / 05</span><span>AI</span></div>
+      <div class="cert-icon-row">🤖💡✎</div>
+      <div><span class="mono provider">Google</span><h3>Google AI Essentials Professional Certificate</h3></div>
+    </div>
+    <div class="cert-card" data-card>
+      <div class="top-row mono"><span>05 / 05</span><span>Design</span></div>
+      <div class="cert-icon-row">🎨✎📐</div>
+      <div><span class="mono provider">Visual Craft</span><h3>Graphic Design Essentials</h3></div>
+      <ul class="bullets"><li>Visual hierarchy</li><li>Typography</li><li>Layout</li><li>Brand consistency</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- SKILL KIT -->
+<section class="shell skill-sec grid-dark">
+  <span class="sticker" style="top:8%;left:90%;--r:10deg;">💡</span>
+  <span class="sticker" style="top:88%;left:6%;--r:-10deg;animation-delay:.7s;">🖊️</span>
+  <span class="mono eyebrow fade-up">Skill Kit</span>
+  <h2 class="sec-title fade-up">What I Bring</h2>
+  <div class="skill-acc fade-up">
+    <div class="sk-row open" data-sk>
+      <div class="sk-top"><h4>Content &amp; SEO</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">Website content</span><span class="sk-tag">SEO audits</span><span class="sk-tag">Newsletters</span><span class="sk-tag">AI search</span></div>
+      <div class="sk-body"><p>Audited Greentern's website for SEO gaps, work on its website and client newsletter, and planned content calendars for 10+ brands at TING Works. Semrush AI-Powered Marketer certified.</p></div>
+    </div>
+    <div class="sk-row" data-sk>
+      <div class="sk-top"><h4>LinkedIn &amp; Founder-led Content</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">LinkedIn</span><span class="sk-tag">Founder voice</span><span class="sk-tag">Brand perception</span><span class="sk-tag">Newsletters</span></div>
+      <div class="sk-body"><p>LinkedIn work at Greentern, a founder's newsletter I wrote for REWEAR as an assignment, and research on how founders shape how people see their brands.</p></div>
+    </div>
+    <div class="sk-row" data-sk>
+      <div class="sk-top"><h4>Outreach &amp; Partnerships</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">Outbound</span><span class="sk-tag">Qualification</span><span class="sk-tag">Prospect lists</span><span class="sk-tag">Follow-ups</span></div>
+      <div class="sk-body"><p>Daily conversations with brand decision makers at Greentern across India and Southeast Asia, 5 meetings booked in a month, and B2B prospect lists built from Inc42 and Tracxn.</p></div>
+    </div>
+    <div class="sk-row" data-sk>
+      <div class="sk-top"><h4>Data &amp; Experiments</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">Performance reports</span><span class="sk-tag">Power BI</span><span class="sk-tag">Tableau</span><span class="sk-tag">Meta Business Suite</span></div>
+      <div class="sk-body"><p>Monthly performance reports and competitor research at TING Works, and Google Data Analytics certified, so I can tell what's working and what to stop.</p></div>
+    </div>
+    <div class="sk-row" data-sk>
+      <div class="sk-top"><h4>Design &amp; Building</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">Fine Arts</span><span class="sk-tag">Canva</span><span class="sk-tag">Figma</span><span class="sk-tag">UX</span></div>
+      <div class="sk-body"><p>A Fine Arts background and hands-on Canva and Figma work, from pitch decks to newsletter layouts. Google UX Design certified, so I think about how a person moves through a page, not just how it looks.</p></div>
+    </div>
+    <div class="sk-row" data-sk>
+      <div class="sk-top"><h4>How I Work</h4><span class="chev">+</span></div>
+      <div class="sk-tags"><span class="sk-tag">Ownership</span><span class="sk-tag">Hands-on</span><span class="sk-tag">Curiosity</span><span class="sk-tag">Open to feedback</span></div>
+      <div class="sk-body"><p>Happy to roll up my sleeves, juggle several moving pieces, take feedback, and work across teams to get something right.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- BEYOND -->
+<section class="shell beyond-sec grid-light">
+  <span class="sticker" style="top:8%;left:6%;--r:-14deg;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">🎧</span>
+  <span class="sticker" style="top:10%;left:92%;--r:12deg;animation-delay:.5s;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">🖌️</span>
+  <span class="sticker" style="top:88%;left:90%;--r:8deg;animation-delay:1s;filter:drop-shadow(0 6px 10px rgba(0,0,0,0.2));">🥁</span>
+  <span class="mono eyebrow fade-up">Outside the Resume</span>
+  <h2 class="sec-title fade-up" style="margin-bottom:8px;">What I learn outside work often shapes how I show up within it.</h2>
+  <div class="beyond-grid" style="margin-top:48px;">
+    <div class="beyond-card fade-up">
+      <div class="ic">🏅</div>
+      <h4>Fine Arts Champion</h4>
+      <span class="yr mono">2026</span>
+      <p>I've always been curious about how things look and feel, and I naturally gravitate toward creating. This was a small recognition of that, but more than anything, it's something I'm still exploring and learning.</p>
+    </div>
+    <div class="beyond-card fade-up">
+      <div class="ic">🥁</div>
+      <h4>Percussionist</h4>
+      <span class="yr mono">Institute Women's Brass Band (2022–2026)</span>
+      <p>Being part of a band taught me how to listen, adapt, and stay in rhythm with others. It's something that continues to shape how I approach teamwork and learning even now.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FINAL -->
+<section class="final grid-dark">
+  <span class="sticker" style="top:8%;left:88%;--r:-10deg;">✨</span>
+  <div class="shell" style="padding-top:0;padding-bottom:0;">
+    <span class="mono kicker">Get in Touch</span>
+    <h2 style="margin-top:20px;" class="serif">Contact</h2>
+    <p class="lead">Early in my career, but not in ownership. I'd like to help more companies find Huzzle, and help turn what works into channels that keep running.</p>
+
+    <div class="contact-grid">
+      <div class="c-cell"><div class="lbl mono">Email</div><div class="val"><a href="mailto:sailakshmisrii18@gmail.com">sailakshmisrii18@gmail.com</a></div></div>
+      <div class="c-cell"><div class="lbl mono">Mobile</div><div class="val"><a href="tel:+918247016315">+91 8247016315</a></div></div>
+      <div class="c-cell"><div class="lbl mono">LinkedIn</div><div class="val"><a href="https://www.linkedin.com/in/sai-lakshmi-sri" target="_blank" rel="noopener">linkedin.com/in/sai-lakshmi-sri</a></div></div>
+    </div>
+
+    <p class="final-note">"Not everything shows up on a resume, but I'd like to show up and learn."</p>
+
+    <div class="portfolio-cta fade-up">
+      <span class="mono" style="color:var(--pink);">Take a Look</span>
+      <h3 class="serif">Wanna see some of my work?</h3>
+      <p>Campaigns, creatives, presentations and projects from my personal work.</p>
+      <a href="https://drive.google.com/drive/folders/11b8g65U05H_lx2vDeiNaKJscgNc-YSR0" target="_blank" rel="noopener" class="portfolio-btn">View Portfolio <span class="arrow">→</span></a>
+    </div>
+
+    <a href="mailto:sailakshmisrii18@gmail.com?subject=Founder%27s%20Associate%20(Growth)%2C%20Huzzle%20%7C%20Sailakshmi%20Sri%20R." class="apply-btn" style="margin-top:60px;">Consider this my application <span class="arrow">→</span></a>
+  </div>
+  <footer>
+    <span>Sailakshmi Sri R. © 2026</span>
+  </footer>
+</section>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lenis/1.1.13/lenis.min.js"></script>
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ---------- smooth scroll ---------- */
+let lenis;
+if(!reduceMotion){
+  try{
+    lenis = new Lenis({ lerp:0.1, smoothWheel:true });
+    lenis.on('scroll', ScrollTrigger.update);
+    gsap.ticker.add((time)=>{ lenis.raf(time*1000); });
+    gsap.ticker.lagSmoothing(0);
+  }catch(e){}
+}
+
+/* ---------- cursor trail ---------- */
+(function(){
+  const balls = [1,2,3,4,5,6,7].map(n=>document.getElementById('ball'+n));
+  const root = document.body;
+  const SPACING = 22;
+  const BALL_EASE = 0.42;
+
+  let rawX = innerWidth/2, rawY = innerHeight/2;
+  let ballPos = balls.map(()=>({x:rawX,y:rawY}));
+  let history = [{x:rawX,y:rawY}];
+  let active = false;
+  let fadeTimer = null;
+  let lastX = rawX, lastY = rawY;
+
+  function showCursor(){ clearTimeout(fadeTimer); root.classList.add('cursor-live'); }
+  function hideCursorSoon(delay){ clearTimeout(fadeTimer); fadeTimer = setTimeout(()=>root.classList.remove('cursor-live'), delay||0); }
+
+  function setPointer(x,y){
+    rawX=x; rawY=y;
+    if(!active){ history=[{x,y}]; ballPos=balls.map(()=>({x,y})); }
+    active=true; showCursor();
+  }
+
+  window.addEventListener('mousemove', e=>setPointer(e.clientX,e.clientY));
+  document.addEventListener('mouseleave', ()=>hideCursorSoon(0));
+  document.addEventListener('mouseenter', ()=>{ if(active) showCursor(); });
+
+  window.addEventListener('touchstart', e=>{ const t=e.touches[0]; if(t) setPointer(t.clientX,t.clientY); }, {passive:true});
+  window.addEventListener('touchmove', e=>{ const t=e.touches[0]; if(t){ rawX=t.clientX; rawY=t.clientY; showCursor(); } }, {passive:true});
+  window.addEventListener('touchend', ()=>hideCursorSoon(90));
+  window.addEventListener('touchcancel', ()=>hideCursorSoon(90));
+
+  function pointAtDistance(dist){
+    let acc = 0;
+    for(let i=history.length-1;i>0;i--){
+      const a=history[i], b=history[i-1];
+      const d=Math.hypot(a.x-b.x,a.y-b.y);
+      if(acc+d>=dist){ const t=d===0?0:(dist-acc)/d; return { x:a.x+(b.x-a.x)*t, y:a.y+(b.y-a.y)*t }; }
+      acc+=d;
+    }
+    return history[0];
+  }
+
+  function loop(){
+    if(active){
+      if(Math.hypot(rawX-lastX, rawY-lastY) > 0.4){
+        history.push({x:rawX,y:rawY});
+        if(history.length>200) history.shift();
+        lastX=rawX; lastY=rawY;
+      }
+      balls.forEach((b,i)=>{
+        const target = pointAtDistance(SPACING*(i+1));
+        const bp = ballPos[i];
+        bp.x += (target.x-bp.x)*BALL_EASE;
+        bp.y += (target.y-bp.y)*BALL_EASE;
+        b.style.left = bp.x+'px'; b.style.top = bp.y+'px';
+      });
+    }
+    requestAnimationFrame(loop);
+  }
+  loop();
+})();
+
+/* ---------- hero reveal ---------- */
+const heroTl = gsap.timeline({ delay: reduceMotion?0:0.3 });
+heroTl.to('.hero-name .r span', { y:'0%', duration:1, ease:'power4.out', stagger:0.1 })
+  .to('.hero-sub', { opacity:1, duration:.7 }, '-=0.5')
+  .to('.hero-bio', { opacity:1, duration:.7 }, '-=0.45')
+  .to('.hero-tags', { opacity:1, duration:.7 }, '-=0.4')
+  .to('#factsCard', { opacity:1, y:0, duration:.9, ease:'power3.out' }, '-=0.6');
+
+/* ---------- generic fade-ups ---------- */
+gsap.utils.toArray('.fade-up').forEach(el=>{
+  gsap.to(el, { opacity:1, y:0, duration:0.9, ease:'power3.out', scrollTrigger:{ trigger:el, start:'top 88%' } });
+});
+
+/* ---------- animated highlight badges ---------- */
+gsap.utils.toArray('.hl-badge').forEach(el=>{
+  const target = parseInt(el.dataset.count,10);
+  const suffix = el.dataset.suffix !== undefined ? el.dataset.suffix : '%';
+  ScrollTrigger.create({
+    trigger:el, start:'top 90%', once:true,
+    onEnter:()=>{ const o={v:0}; gsap.to(o,{v:target,duration:1.1,ease:'power2.out',
+      onUpdate:()=>{ el.textContent = Math.round(o.v)+suffix; } }); }
+  });
+});
+
+/* ---------- scratch card ---------- */
+(function(){
+  const c = document.getElementById('scratchCanvas');
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  const cap = document.querySelector('.scratch-cap');
+  let w=0, h=0, drawing=false, last=null, done=false, moves=0;
+
+  function paint(){
+    if(done) return;
+    const r = c.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    w = r.width; h = r.height;
+    if(!w || !h) return;
+    c.width = w*dpr; c.height = h*dpr;
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    ctx.globalCompositeOperation = 'source-over';
+    const g = ctx.createLinearGradient(0,0,w,h);
+    g.addColorStop(0,'#6c5cff'); g.addColorStop(1,'#2e2490');
+    ctx.fillStyle = g; ctx.fillRect(0,0,w,h);
+    ctx.fillStyle = 'rgba(255,255,255,0.16)';
+    for(let i=0;i<70;i++){ ctx.beginPath(); ctx.arc(Math.random()*w,Math.random()*h,Math.random()*2+0.5,0,Math.PI*2); ctx.fill(); }
+    ctx.fillStyle = '#ffffff'; ctx.textAlign = 'center';
+    ctx.font = 'italic 700 26px "Playfair Display", serif';
+    ctx.fillText('Scratch here', w/2, h/2+2);
+    ctx.font = '500 10px "JetBrains Mono", monospace';
+    ctx.fillText('YOUR TEST RESULTS ARE IN', w/2, h/2+26);
+  }
+
+  function pos(e){ const r=c.getBoundingClientRect(); return { x:e.clientX-r.left, y:e.clientY-r.top }; }
+  function scratch(p){
+    ctx.globalCompositeOperation = 'destination-out';
+    ctx.lineWidth = 42; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+    ctx.beginPath();
+    if(last){ ctx.moveTo(last.x,last.y); ctx.lineTo(p.x,p.y); ctx.stroke(); }
+    ctx.arc(p.x,p.y,21,0,Math.PI*2); ctx.fill();
+    last = p;
+    if(++moves % 8 === 0) check();
+  }
+  function check(){
+    const data = ctx.getImageData(0,0,c.width,c.height).data;
+    let clear=0, total=0;
+    for(let i=3;i<data.length;i+=4*24){ total++; if(data[i]===0) clear++; }
+    if(total && clear/total > 0.5) reveal();
+  }
+  function reveal(){
+    if(done) return;
+    done = true;
+    c.style.opacity = '0'; c.style.pointerEvents = 'none';
+    if(cap) cap.textContent = 'Now make it a channel';
+  }
+
+  c.addEventListener('pointerdown', e=>{ drawing=true; last=null; try{c.setPointerCapture(e.pointerId);}catch(_){} scratch(pos(e)); });
+  c.addEventListener('pointermove', e=>{ if(drawing) scratch(pos(e)); });
+  ['pointerup','pointercancel','pointerleave'].forEach(t=>c.addEventListener(t, ()=>{ drawing=false; last=null; }));
+
+  paint();
+  if(document.fonts && document.fonts.ready){ document.fonts.ready.then(paint); }
+  let rt; window.addEventListener('resize', ()=>{ clearTimeout(rt); rt=setTimeout(paint,200); });
+})();
+
+/* ---------- test builder ---------- */
+const Builder = (function(){
+  // option: [label, emoji, phrase used in the hypothesis]
+  const AUD = [['Founders hiring abroad','🚀','founders hiring abroad'],['HR and People leads','🧑‍💼','HR and People leads'],['Hiring managers','📋','hiring managers']];
+  const BUILDS = {
+    seo:{ icon:'🔎', verb:'publish', prep:'for', steps:[
+      {k:'aud', t:'Who is it for', one:true, o:AUD},
+      {k:'fmt', t:'Format (up to 2)', max:2, o:[['Country hiring guide','🌍','a country hiring guide'],['Cost calculator page','🧮','a hiring cost calculator'],['Comparison page','⚖️','a comparison page'],['FAQ for AI answers','🤖','FAQ pages written for AI answers']]},
+      {k:'metric', t:'Success looks like', one:true, o:[['More demo requests','📈','more demo requests'],['Better rankings','🔝','better rankings for target terms'],['Mentions in AI answers','🤖','Huzzle showing up in AI answers']]}
+    ]},
+    li:{ icon:'💼', verb:'try', prep:'for', steps:[
+      {k:'aud', t:'Who is it for', one:true, o:AUD},
+      {k:'fmt', t:'Format (up to 2)', max:2, o:[['Founder story post','✍️','founder story posts'],['Carousel','🗂️','carousels'],['Hiring myth-buster','💡','hiring myth-busters'],['Creator collab','🎙️','a creator collab']]},
+      {k:'metric', t:'Success looks like', one:true, o:[['Inbound DMs','💬','more inbound DMs'],['Profile visits','👀','more profile visits'],['More demo requests','📈','more demo requests']]}
+    ]},
+    partner:{ icon:'🤝', verb:'offer', prep:'to', steps:[
+      {k:'aud', t:'Who is it for', one:true, o:[['Existing happy clients','😊','existing happy clients'],['VC and accelerator portfolios','🏦','VC and accelerator portfolios'],['HR consultants','🤝','HR consultants']]},
+      {k:'fmt', t:'Format (up to 2)', max:2, o:[['Referral credit','🎁','a referral credit'],['Portfolio perk','🎟️','a portfolio perk'],['Affiliate link','🔗','an affiliate link'],['Co-hosted webinar','🎤','a co-hosted webinar']]},
+      {k:'metric', t:'Success looks like', one:true, o:[['Referred deals','🤝','more referred deals'],['Signed partners','✍️','new signed partners'],['Intros made','📨','more warm intros']]}
+    ]}
+  };
+  const DEFAULTS = {
+    seo:{aud:'Founders hiring abroad', fmt:['Country hiring guide'], metric:'More demo requests'},
+    li:{aud:'Founders hiring abroad', fmt:['Founder story post'], metric:'Inbound DMs'},
+    partner:{aud:'Existing happy clients', fmt:['Referral credit'], metric:'Referred deals'}
+  };
+  const ADJ = ['Small Bet','Quick Win','Signal Check','Two-Week','Long Game','First Try','Low-Cost'];
+  let tab = 'seo';
+  const sel = JSON.parse(JSON.stringify(DEFAULTS));
+
+  const stepsEl = document.getElementById('bSteps');
+  const card = document.getElementById('testCard');
+  const nameEl = document.getElementById('bName');
+  const sumEl = document.getElementById('bSum');
+  const ticket = document.getElementById('ticket');
+
+  const find = (stepK, n)=> BUILDS[tab].steps.find(s=>s.k===stepK).o.find(o=>o[0]===n);
+
+  function renderSteps(){
+    stepsEl.innerHTML = '';
+    BUILDS[tab].steps.forEach(step=>{
+      const wrap = document.createElement('div'); wrap.className='b-step';
+      wrap.innerHTML = `<h5>${step.t}</h5>`;
+      const opts = document.createElement('div'); opts.className='b-opts';
+      step.o.forEach(o=>{
+        const b = document.createElement('button'); b.className='b-opt';
+        b.innerHTML = (o[1]?`<span>${o[1]}</span>`:'') + o[0];
+        const cur = sel[tab][step.k];
+        if(step.one ? cur===o[0] : cur.includes(o[0])) b.classList.add('on');
+        b.addEventListener('click', ()=>{
+          if(step.one){ sel[tab][step.k] = o[0]; }
+          else{
+            const arr = sel[tab][step.k];
+            const i = arr.indexOf(o[0]);
+            if(i>-1) arr.splice(i,1);
+            else if(arr.length >= step.max){ b.classList.remove('nope'); void b.offsetWidth; b.classList.add('nope'); return; }
+            else arr.push(o[0]);
+          }
+          ticket.classList.remove('show');
+          renderSteps(); renderStage();
+        });
+        opts.appendChild(b);
+      });
+      wrap.appendChild(opts); stepsEl.appendChild(wrap);
+    });
+  }
+
+  function hash(str){ let h=0; for(let i=0;i<str.length;i++){ h=(h*31+str.charCodeAt(i))|0; } return Math.abs(h); }
+
+  function renderStage(){
+    const s = sel[tab];
+    const B = BUILDS[tab];
+    const aud = find('aud', s.aud);
+    const metric = find('metric', s.metric);
+    const fmts = s.fmt.map(n=>find('fmt', n));
+    const tiles = [aud, ...fmts, metric];
+    card.innerHTML = `<div class="tc-icon">${B.icon}</div><div class="tc-tiles">` +
+      tiles.map((o,i)=>`<span class="tc-tile" style="animation-delay:${i*0.06}s"><span>${o[1]}</span>${o[0]}</span>`).join('') + `</div>`;
+
+    const adj = ADJ[hash(tab + JSON.stringify(s)) % ADJ.length];
+    nameEl.textContent = `The ${adj} Test`;
+    if(!fmts.length){ sumEl.textContent = 'Pick at least one format to shape the test.'; return; }
+    const fmtText = fmts.map(o=>o[2]).join(' and ');
+    sumEl.textContent = `If we ${B.verb} ${fmtText} ${B.prep} ${aud[2]}, we should see ${metric[2]} within two weeks.`;
+  }
+
+  function setTab(t){
+    tab = t;
+    document.querySelectorAll('.b-tab').forEach(b=>b.classList.toggle('on', b.dataset.tab===t));
+    ticket.classList.remove('show');
+    renderSteps(); renderStage();
+  }
+  document.querySelectorAll('.b-tab').forEach(b=>b.addEventListener('click', ()=>setTab(b.dataset.tab)));
+
+  document.getElementById('launchBtn').addEventListener('click', ()=>{
+    if(!sel[tab].fmt.length) return;
+    const scoot = document.getElementById('tScoot');
+    const status = document.getElementById('tStatus');
+    document.getElementById('tNo').textContent = 'Test #GR-' + String(1000+Math.floor(Math.random()*9000));
+    status.textContent = 'Running...';
+    scoot.style.transition = 'none'; scoot.style.left = '0px';
+    ticket.classList.remove('show'); void ticket.offsetWidth; ticket.classList.add('show');
+    requestAnimationFrame(()=>requestAnimationFrame(()=>{
+      scoot.style.transition = ''; scoot.style.left = 'calc(100% - 46px)';
+    }));
+    setTimeout(()=>{ status.textContent = 'Results in. Keep it, tweak it or drop it.'; }, reduceMotion?50:2500);
+  });
+
+  renderSteps(); renderStage();
+
+  return {
+    load(t, choice){
+      sel[t] = Object.assign(JSON.parse(JSON.stringify(DEFAULTS[t])), JSON.parse(JSON.stringify(choice)));
+      setTab(t);
+    }
+  };
+})();
+
+/* ---------- idea scorer ---------- */
+(function(){
+  const list = document.getElementById('scList');
+  const IDEAS = [
+    {n:'Country-by-country hiring guides', tag:'SEO', i:8, c:6, e:6, tab:'seo', choice:{aud:'Founders hiring abroad', fmt:['Country hiring guide'], metric:'More demo requests'}},
+    {n:'Pages written to be picked up by AI answers', tag:'GEO', i:7, c:5, e:7, tab:'seo', choice:{aud:'HR and People leads', fmt:['FAQ for AI answers'], metric:'Mentions in AI answers'}},
+    {n:'Founder-led LinkedIn posts', tag:'LinkedIn', i:7, c:7, e:8, tab:'li', choice:{aud:'Founders hiring abroad', fmt:['Founder story post'], metric:'Inbound DMs'}},
+    {n:'Referral rewards for existing clients', tag:'Referrals', i:8, c:6, e:6, tab:'partner', choice:{aud:'Existing happy clients', fmt:['Referral credit'], metric:'Referred deals'}},
+    {n:'Perks for VC and accelerator portfolios', tag:'Partnerships', i:8, c:5, e:5, tab:'partner', choice:{aud:'VC and accelerator portfolios', fmt:['Portfolio perk'], metric:'Signed partners'}},
+    {n:'Affiliate programme for HR consultants', tag:'Affiliates', i:6, c:5, e:4, tab:'partner', choice:{aud:'HR consultants', fmt:['Affiliate link'], metric:'Referred deals'}},
+    {n:'Collabs with remote-work creators', tag:'Influencers', i:6, c:4, e:5, tab:'li', choice:{aud:'HR and People leads', fmt:['Creator collab'], metric:'Profile visits'}}
+  ];
+  const score = d => ((d.i + d.c + d.e) / 3).toFixed(1);
+  const LBL = {i:'Impact', c:'Confidence', e:'Ease'};
+
+  function render(){
+    const sorted = [...IDEAS].sort((a,b)=> score(b) - score(a));
+    list.innerHTML = '';
+    sorted.forEach((d, idx)=>{
+      const row = document.createElement('div');
+      row.className = 'sc-row' + (idx===0 ? ' top' : '');
+      row.style.animationDelay = (idx*0.04)+'s';
+      row.innerHTML = `
+        <div class="sc-name"><span class="mono">${d.tag}</span><h5>${d.n}</h5>${idx===0?'<span class="sc-first mono">Test first</span>':''}</div>
+        <div class="sc-sliders">${['i','c','e'].map(k=>`
+          <label class="sc-sl"><span class="mono">${LBL[k]} <b>${d[k]}</b></span>
+          <input type="range" min="1" max="10" value="${d[k]}" data-k="${k}" aria-label="${LBL[k]} for ${d.n}"></label>`).join('')}
+        </div>
+        <div class="sc-right"><div class="sc-score">${score(d)}</div><button class="sc-plan" type="button">Plan this test →</button></div>`;
+      row.querySelectorAll('input').forEach(inp=>{
+        inp.addEventListener('input', ()=>{
+          d[inp.dataset.k] = parseInt(inp.value,10);
+          inp.previousElementSibling.querySelector('b').textContent = inp.value;
+          row.querySelector('.sc-score').textContent = score(d);
+        });
+        inp.addEventListener('change', render);
+      });
+      row.querySelector('.sc-plan').addEventListener('click', ()=>{
+        Builder.load(d.tab, d.choice);
+        const target = document.getElementById('build');
+        if(lenis) lenis.scrollTo(target,{offset:-20}); else target.scrollIntoView({behavior:'smooth'});
+      });
+      list.appendChild(row);
+    });
+  }
+  render();
+})();
+
+/* ---------- research insights toggle ---------- */
+const insightBtn = document.getElementById('insightToggle');
+const insightList = document.getElementById('insightsList');
+const insightLabel = document.getElementById('insightLabel');
+insightBtn.addEventListener('click', ()=>{
+  const open = insightList.classList.toggle('open');
+  insightLabel.textContent = open ? 'Hide Insights' : 'Show Insights';
+});
+
+/* ---------- skill accordion ---------- */
+document.querySelectorAll('[data-sk]').forEach(row=>{
+  row.querySelector('.sk-top').addEventListener('click', ()=>{
+    document.querySelectorAll('[data-sk]').forEach(r=>{ if(r!==row) r.classList.remove('open'); });
+    row.classList.toggle('open');
+  });
+});
+
+/* ---------- roadmap ---------- */
+(function(){
+  const track = document.getElementById('roadTrack');
+  if(!track) return;
+  const viewport = document.getElementById('roadViewport');
+  const refPath = document.getElementById('roadRef');
+  const checkpoints = Array.from(document.querySelectorAll('.checkpoint'));
+
+  checkpoints.forEach(cp=>{
+    const x = parseFloat(cp.dataset.x), y = parseFloat(cp.dataset.y);
+    cp.style.left = (x/1200*100) + '%';
+    cp.style.top = (y/320*100) + '%';
+  });
+
+  const traveler = document.getElementById('roadTraveler');
+  let panDistance = 0;
+  const pathLength = refPath.getTotalLength();
+
+  function updateVisual(progress){
+    gsap.set(track, { x: -panDistance*progress });
+    const pt = refPath.getPointAtLength(progress*pathLength);
+    traveler.style.left = (pt.x/1200*100) + '%';
+    traveler.style.top = (pt.y/320*100) + '%';
+    checkpoints.forEach(cp=>{
+      const cpProgress = parseFloat(cp.dataset.progress);
+      const dist = Math.abs(progress-cpProgress);
+      const focus = gsap.utils.clamp(0,1, 1 - dist/0.2);
+      cp.style.transform = `scale(${gsap.utils.interpolate(0.68, 1.08, focus)})`;
+      cp.style.opacity = gsap.utils.interpolate(0.35, 1, focus);
+      cp.classList.toggle('focused', focus > 0.5);
+      cp.style.zIndex = Math.round(focus*100);
+    });
+  }
+
+  let liveTrigger = null;
+  function setupPin(){
+    if(liveTrigger){ liveTrigger.kill(); liveTrigger=null; }
+    if(window.innerWidth <= 768){
+      gsap.set(track,{ x:0 }); track.style.width = '1500px'; panDistance = 0; updateVisual(0); return;
+    }
+    const vw = viewport.clientWidth;
+    track.style.width = (vw*3.6) + 'px';
+    panDistance = (vw*3.6) - vw;
+    const scrollDistance = panDistance + vw*0.4;
+    liveTrigger = ScrollTrigger.create({
+      trigger:'#roadPin', start:'top top', end:'+=' + scrollDistance,
+      pin:true, scrub:0.7,
+      onUpdate:self=> updateVisual(self.progress)
+    });
+    updateVisual(0);
+  }
+  setupPin();
+  let resizeT;
+  window.addEventListener('resize', ()=>{ clearTimeout(resizeT); resizeT=setTimeout(setupPin,200); });
+})();
+
+/* ---------- certifications card deal ---------- */
+(function(){
+  const cards = gsap.utils.toArray('#certStack [data-card]');
+  const dots = gsap.utils.toArray('#certRail .cd');
+  const N = cards.length;
+  const lerp = (a,b,t)=> a+(b-a)*t;
+
+  function pendingPos(depth){
+    depth = Math.min(depth,4);
+    return { x:depth*2.4, y:depth*2.1, scale:1-depth*0.035, rot:depth*1.8 };
+  }
+  const CENTER = { x:0, y:0, scale:1, rot:0 };
+  const EXITED = { x:-62, y:-3, scale:0.92, rot:-9 };
+  const UNITS = (N-1) + 0.5;
+
+  let liveTrigger = null;
+  function render(progress){
+    const p = progress * UNITS;
+    cards.forEach((card,i)=>{
+      const local = p - i;
+      let pos, z;
+      if(local < 0){
+        const depth = -local;
+        pos = pendingPos(depth); z = 50 - Math.round(depth);
+      } else if(i > 0 && local < 0.25){
+        const t = local/0.25;
+        const from = pendingPos(1);
+        pos = { x:lerp(from.x,CENTER.x,t), y:lerp(from.y,CENTER.y,t), scale:lerp(from.scale,CENTER.scale,t), rot:lerp(from.rot,CENTER.rot,t) };
+        z = 90;
+      } else if(local < 0.75){
+        pos = CENTER; z = 90;
+      } else if(local < 1){
+        const t = (local-0.75)/0.25;
+        pos = { x:lerp(CENTER.x,EXITED.x,t), y:lerp(CENTER.y,EXITED.y,t), scale:lerp(CENTER.scale,EXITED.scale,t), rot:lerp(CENTER.rot,EXITED.rot,t) };
+        z = 30;
+      } else {
+        pos = EXITED; z = 10;
+      }
+      gsap.set(card, { x:pos.x+'vw', y:pos.y+'vh', scale:pos.scale, rotate:pos.rot, zIndex:z });
+    });
+    const active = gsap.utils.clamp(0, N-1, Math.floor(p+0.001));
+    dots.forEach((d,i)=>d.classList.toggle('active', i===active));
+  }
+  function setup(){
+    if(liveTrigger){ liveTrigger.kill(); liveTrigger=null; }
+    const vh = window.innerHeight;
+    liveTrigger = ScrollTrigger.create({
+      trigger:'#certPin', start:'top top', end:'+=' + (UNITS * vh * 0.85),
+      pin:true, scrub:0.55,
+      onUpdate:self=> render(self.progress)
+    });
+    render(0);
+  }
+  setup();
+  let resizeT;
+  window.addEventListener('resize', ()=>{ clearTimeout(resizeT); resizeT=setTimeout(setup,200); });
+})();
+
+window.addEventListener('resize', ()=>{ ScrollTrigger.refresh(); });
+</script>
+</body>
+</html>
